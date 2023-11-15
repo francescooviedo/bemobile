@@ -9,6 +9,7 @@ services:
       - "${PORT}:${PORT}"
     depends_on:
       - mysql
+    container_name: app
     networks:
       - my-network
     environment:
@@ -26,6 +27,7 @@ services:
 
   mysql:
     image: mysql:5.7
+    container_name: db
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DB_NAME: ${MYSQL_DB_NAME}

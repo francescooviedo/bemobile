@@ -30,9 +30,11 @@ cp .env.example .env
 docker-compose up --build -d
 ```
 
-### Migre e popule o banco com os seguintes comandos:
+### Crie, Migre e popule o banco com os seguintes comandos:
 
 ```sh
+docker compose exec db mysql -uroot -p -e 'CREATE DATABASE IF NOT EXISTS bemobile_db'
+#password: password_root
 docker-compose exec app node ace migration:run
 docker-compose exec app node ace db:seed
 ```
