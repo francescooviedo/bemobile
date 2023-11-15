@@ -63,10 +63,4 @@ export default class SalesController {
     const sale = await Sale.findOrFail(params.id)
     return response.json(sale)
   }
-
-  public async destroy({ params, response }: HttpContextContract) {
-    const sale = await Sale.findOrFail(params.id)
-    await sale.delete()
-    return response.status(204)
-  }
 }
